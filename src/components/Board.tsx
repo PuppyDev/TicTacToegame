@@ -19,9 +19,10 @@ const Board: FC<IBoard> = ({ handleClickOnCell }) => {
     const drawBoard = useCallback(
         (ctx: CanvasRenderingContext2D) => {
             // Draw the board
+            ctx.fillStyle = "#f2eecb";
             ctx.strokeStyle = "black";
             ctx.lineWidth = 1;
-            ctx.fillStyle = "#f2eecb";
+            ctx.fillRect(0, 0, canvasSize, canvasSize);
 
             // Draw vertical and horizontal lines
             for (let i = 1; i < gridSize; i++) {
@@ -93,7 +94,7 @@ const Board: FC<IBoard> = ({ handleClickOnCell }) => {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        ctx.fillRect(0, 0, canvasSize, canvasSize);
+        ctx.clearRect(0, 0, canvasSize, canvasSize);
         drawBoard(ctx);
 
         // Draw X and O
