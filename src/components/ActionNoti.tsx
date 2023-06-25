@@ -27,7 +27,7 @@ const ActionNoti = (props: IActionNoti) => {
         dispatch(doSetXIsNext(!xIsNext));
     };
 
-    const disabledBtnUndo = step === 0 || isGameOver || step < historyList.length - 1;
+    const disabledBtnUndo = step === 0 || isGameOver;
     const disableBtnRedo = step === historyList.length - 1 || isGameOver;
 
     return (
